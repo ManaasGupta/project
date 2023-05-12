@@ -54,7 +54,7 @@ def spo_audio_download(link):
     except:
         print("Download failed!!")
     finally:
-        os.system("cd ..")
+        os.chdir("..")
 
 def main():
     print("Welcome to YouTube Downloader V1.0")
