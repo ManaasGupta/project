@@ -1,5 +1,6 @@
 from pytube import YouTube
 import os
+os.makedirs("media_files",exist_ok = True)
 #ask for the link from user
 def yt_video_download(link):
     yt = YouTube(link)
