@@ -15,6 +15,7 @@ file_name.sort(key=os.path.getctime)
 
 
 def text_to_pdf(input_file, output_file):
+    print(f"Converting {input_file} .....")
     styles = getSampleStyleSheet()
     style = styles['Normal']
     style.fontName = 'Helvetica'
@@ -22,7 +23,7 @@ def text_to_pdf(input_file, output_file):
 
     paragraphs = []
 
-    with open(input_file, 'r',encoding='UTF-8') as f:
+    with open(input_file, 'r',encoding='cp1252') as f:
         lines = f.readlines()
         for line in lines:
             p = Paragraph(line.strip(), style)
@@ -30,7 +31,9 @@ def text_to_pdf(input_file, output_file):
 
     doc = SimpleDocTemplate(output_file, pagesize=letter)
     doc.build(paragraphs)
+    print("Done")
     os.chdir("..")
+
 # Usage example
-# out_file=file_name[-1].split(".")
-# text_to_pdf(f'{file_name[-1]}', f'{out_file[0]}.pdf')
+out_file=file_name[-1].split(".")
+text_to_pdf(f'{file_name[-1]}', f'{out_file[0]}.pdf')
