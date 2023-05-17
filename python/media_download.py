@@ -38,7 +38,7 @@ def yt_audio_download(link):
         # save the file
         print("Saving file....")
         base, ext = os.path.splitext(out_file)
-        new_file = base + '.mp3'
+        new_file = base + '.wav'
         os.rename(out_file, new_file)
         print("File Saved")
     except:

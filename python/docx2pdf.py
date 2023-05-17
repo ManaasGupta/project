@@ -36,4 +36,4 @@ def docx_to_pdf(input_file, output_file):
 
 # Usage example
 name,ext=file_name[-1].split(".")
-docx_to_pdf(f'{file_name[-1]}', f'{name}.pdf')
+docx_to_pdf(f'{file_name[-1]}', f'{name}_converted.pdf')
