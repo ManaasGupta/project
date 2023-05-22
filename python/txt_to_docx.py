@@ -49,6 +49,7 @@ def convert_txt_to_docx(txt_file_path, docx_file_path):
     os.chdir("..")
 
 # Example usage
-name=file_name[-1].split(".")
-print(name)
-convert_txt_to_docx(f'{file_name[-1]}', f'{name[0]}.docx')
+if __name__=="__main__":
+    name=file_name[-1].split(".")
+    print(name)
+    convert_txt_to_docx(f'{file_name[-1]}', f'{name[0]}.docx')

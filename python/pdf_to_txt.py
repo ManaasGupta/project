@@ -18,5 +18,6 @@ def convert_pdf_to_text(input_file,output_file):
         output.write(text)
     print("Done")
     os.chdir("..")
-outfile=file_name[-1].split(".")
-convert_pdf_to_text(f'{file_name[-1]}', f'{outfile[0]}.txt')
+if __name__=="__main__":
+    outfile=file_name[-1].split(".")
+    convert_pdf_to_text(f'{file_name[-1]}', f'{outfile[0]}.txt')

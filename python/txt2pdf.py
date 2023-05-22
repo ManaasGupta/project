@@ -35,5 +35,6 @@ def text_to_pdf(input_file, output_file):
     os.chdir("..")
 
 # Usage example
-out_file=file_name[-1].split(".")
-text_to_pdf(f'{file_name[-1]}', f'{out_file[0]}.pdf')
+if __name__=="__main__":
+    out_file=file_name[-1].split(".")
+    text_to_pdf(f'{file_name[-1]}', f'{out_file[0]}.pdf')

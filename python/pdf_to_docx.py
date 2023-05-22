@@ -19,5 +19,6 @@ def convert_pdf_to_docx(pdf_path, docx_path):
     os.chdir("..")
 
 # Example usage
-name,ext=file_name[-1].split(".")
-convert_pdf_to_docx(f'{file_name[-1]}', f'{name}.docx')
+if __name__=="__main__":
+    name,ext=file_name[-1].split(".")
+    convert_pdf_to_docx(f'{file_name[-1]}', f'{name}.docx')

@@ -35,5 +35,6 @@ def docx_to_pdf(input_file, output_file):
         os.chdir("..")
 
 # Usage example
-name,ext=file_name[-1].split(".")
-docx_to_pdf(f'{file_name[-1]}', f'{name}_converted.pdf')
+if __name__=="__main__":
+    name,ext=file_name[-1].split(".")
+    docx_to_pdf(f'{file_name[-1]}', f'{name}_converted.pdf')
