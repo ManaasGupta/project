@@ -1,6 +1,7 @@
 from pytube import YouTube
 import os
-os.makedirs("media_files",exist_ok = True)
+import sys
+import argparse
 #ask for the link from user
 def yt_video_download(link):
     yt = YouTube(link)
@@ -11,7 +12,7 @@ def yt_video_download(link):
     #Starting download
     try:
         print("Downloading video...")
-        ys.download("media_files")
+        ys.download()
         print("Download completed!!")
     except:
         print("Download failed!!")
@@ -28,12 +29,11 @@ def yt_audio_download(link):
     audio_stream = yt.streams.filter(only_audio=True).first()
 
     # Set the output path for the downloaded audio
-    output_path = "media_files\\"
 
     try:
         # Download the audio stream
         print("Downloading audio...")
-        out_file=audio_stream.download(output_path=output_path)
+        out_file=audio_stream.download()
         print("Download completed!!")
         # save the file
         print("Saving file....")
@@ -45,7 +45,6 @@ def yt_audio_download(link):
         print("Download failed!!")
 
 def spo_audio_download(link):
-    os.chdir("media_files")
     print("spotify version: ",os.system("spotdl --version"))
     link=link
     try:
@@ -56,24 +55,22 @@ def spo_audio_download(link):
     finally:
         os.chdir("..")
 
-def main():
-    print("Welcome to YouTube Downloader V1.0")
-    print("Please select the option you want to use:")
-    print("1. Download Video")
-    print("2. Download Audio")
-    print("3. Exit")
-    option = int(input("Enter your option: "))
-    if option == 1:
-        link = input("Enter the link: ")
-        yt_video_download(link)
-    elif option == 2:
-        link = input("Enter the link: ")
-        check = link.split("/")
+def main(args):
+    os.makedirs("media_files",exist_ok = True)
+    os.chdir("media_files")
+    if (args.mode == 'video') or (args.mode == 'Video') or (args.mode == 'VIDEO'):
+        yt_video_download(args.link)
+    elif (args.mode == 'audio') or (args.mode == 'Audio') or (args.mode == 'AUDIO'):
+        check = args.link.split("/")
         if check[2] == 'www.youtube.com':
-            yt_audio_download(link)
+            yt_audio_download(args.link)
         else:
-            spo_audio_download(link)
+            spo_audio_download(args.link)
     else:
         print("Bye Bye have a nice day.....")
 if __name__=="__main__":  
-    main()
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--mode',type=str,help="Enter video or audio",required=True)
+    parser.add_argument('--link',type=str,help="Enter link",required=True)
+    args=parser.parse_args()
+    sys.stdout.write(str(main(args)))
