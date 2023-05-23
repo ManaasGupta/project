@@ -14,44 +14,44 @@ def main():
         print(f"{idx+1} : {value}\n")
     op_num=int(input("Enter Operation Number : " ))
     print("\n")
-    # if op_num==1:
-    #     print("Enter Word File Name : ",end="")
-    #     word_file_name=input()
-    #     print("Enter Output File Name : ",end="")
-    #     output_file_name=input()
-    #     convert_docx_to_txt(word_file_name,output_file_name)
-    # elif op_num==2:
-    #     print("Enter PDF File Name : ",end="")
-    #     pdf_file_name=input()
-    #     print("Enter Output File Name : ",end="")
-    #     output_file_name=input()
-    #     docx_to_pdf(pdf_file_name,output_file_name)
-    # elif op_num==3:
-    #     print("Enter PDF File Name : ",end="")
-    #     pdf_file_name=input()
-    #     print("Enter Output File Name : ",end="")
-    #     output_file_name=input()
-    #     convert_pdf_to_docx(pdf_file_name,output_file_name)
-    # elif op_num==4:
-    #     print("Enter PDF File Name : ",end="")
-    #     pdf_file_name=input()
-    #     print("Enter Output File Name : ",end="")
-    #     output_file_name=input()
-    #     convert_pdf_to_text(pdf_file_name,output_file_name)
-    # elif op_num==5:
-    #     print("Enter TXT File Name : ",end="")
-    #     txt_file_name=input()
-    #     print("Enter Output File Name : ",end="")
-    #     output_file_name=input()
-    #     convert_txt_to_docx(txt_file_name,output_file_name)
-    # elif op_num==6:
-    #     print("Enter TXT File Name : ",end="")
-    #     txt_file_name=input()
-    #     print("Enter Output File Name : ",end="")
-    #     output_file_name=input()
-    #     text_to_pdf(txt_file_name,output_file_name)
-    # else:
-    #     print("Invalid Operation Number !")
+    if op_num==1:
+        print("Enter Word File Name : ",end="")
+        word_file_name=input()
+        print("Enter Output File Name : ",end="")
+        output_file_name=input()
+        convert_docx_to_txt(word_file_name,output_file_name)
+    elif op_num==2:
+        print("Enter PDF File Name : ",end="")
+        pdf_file_name=input()
+        print("Enter Output File Name : ",end="")
+        output_file_name=input()
+        docx_to_pdf(pdf_file_name,output_file_name)
+    elif op_num==3:
+        print("Enter PDF File Name : ",end="")
+        pdf_file_name=input()
+        print("Enter Output File Name : ",end="")
+        output_file_name=input()
+        convert_pdf_to_docx(pdf_file_name,output_file_name)
+    elif op_num==4:
+        print("Enter PDF File Name : ",end="")
+        pdf_file_name=input()
+        print("Enter Output File Name : ",end="")
+        output_file_name=input()
+        convert_pdf_to_text(pdf_file_name,output_file_name)
+    elif op_num==5:
+        print("Enter TXT File Name : ",end="")
+        txt_file_name=input()
+        print("Enter Output File Name : ",end="")
+        output_file_name=input()
+        convert_txt_to_docx(txt_file_name,output_file_name)
+    elif op_num==6:
+        print("Enter TXT File Name : ",end="")
+        txt_file_name=input()
+        print("Enter Output File Name : ",end="")
+        output_file_name=input()
+        text_to_pdf(txt_file_name,output_file_name)
+    else:
+        print("Invalid Operation Number !")
         
     
 if __name__=="__main__":
