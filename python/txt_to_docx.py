@@ -6,15 +6,6 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph
 from pdf2docx import Converter
 
 
-os.makedirs("media_files",exist_ok=True)
-os.chdir("media_files")
-file_name=[]
-for files in os.listdir("."):
-    if (files.endswith(".txt")) :
-        file_name.append(files)
-file_name.sort(key=os.path.getctime)
-
-
 def text_to_pdf(input_file, output_file):
     print(f"Converting {input_file} .....")
     styles = getSampleStyleSheet()
@@ -46,10 +37,9 @@ def convert_txt_to_docx(txt_file_path, docx_file_path):
     convert_pdf_to_docx("int.pdf",docx_file_path)
     #remove intermediate files
     os.remove("int.pdf")
-    os.chdir("..")
 
 # Example usage
-if __name__=="__main__":
-    name=file_name[-1].split(".")
-    print(name)
-    convert_txt_to_docx(f'{file_name[-1]}', f'{name[0]}.docx')
+# if __name__=="__main__":
+#     name=file_name[-1].split(".")
+#     print(name)
+#     convert_txt_to_docx(f'{file_name[-1]}', f'{name[0]}.docx')

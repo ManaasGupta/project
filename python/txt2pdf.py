@@ -5,14 +5,6 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph
 import os
 
 
-os.makedirs("media_files",exist_ok=True)
-os.chdir("media_files")
-file_name=[]
-for files in os.listdir("."):
-    if files.endswith(".txt"):
-        file_name.append(files)
-file_name.sort(key=os.path.getctime)
-
 
 def text_to_pdf(input_file, output_file):
     print(f"Converting {input_file} .....")
@@ -32,9 +24,8 @@ def text_to_pdf(input_file, output_file):
     doc = SimpleDocTemplate(output_file, pagesize=letter)
     doc.build(paragraphs)
     print("Done")
-    os.chdir("..")
 
 # Usage example
-if __name__=="__main__":
-    out_file=file_name[-1].split(".")
-    text_to_pdf(f'{file_name[-1]}', f'{out_file[0]}.pdf')
+# if __name__=="__main__":
+#     out_file=file_name[-1].split(".")
+#     text_to_pdf(f'{file_name[-1]}', f'{out_file[0]}.pdf')
