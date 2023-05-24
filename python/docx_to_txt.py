@@ -33,6 +33,7 @@ def convert_docx_to_txt(docx_file_path,txt_file_path):
     convert_pdf_to_text("int.pdf",txt_file_path)
     #remove intermediate files
     os.remove("int.pdf")
+    return 
 
 # Example usage
 # if __name__=="__main__":

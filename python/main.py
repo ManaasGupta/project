@@ -8,10 +8,14 @@ import argparse
 import sys
 import os
 
+list_of_operations=["Word File to TXT file","Word File to PDF file","PDF File to Word file","PDF File to TXT file","TXT File to Word file","TXT File to PDF file"]
+
 def main(args):
     print("Welome to Format converter\n")
-    print("\n")
-    oper_num=int(args.mode)
+    for idx,value in enumerate(list_of_operations):
+        print(f"{idx+1}: {value} \n")
+    print("Please select the option from the menu below\n")
+    oper_num=int(input())
     if oper_num==1:
         convert_docx_to_txt(args.input_file,args.output_file)
     elif oper_num==2:
@@ -31,6 +35,5 @@ if __name__=="__main__":
     parser=argparse.ArgumentParser()
     parser.add_argument('-i','--input_file',help="Enter path to input_file you want to convert with extension",required=True)
     parser.add_argument('-o','--output_file',help="Enter path to ouput_file you want to converted in extension",required=True)
-    parser.add_argument('-m','--mode',help="Enter path to ouput_file you want to converted in extension",required=True,type=int)
     args=parser.parse_args()
     sys.stdout.write(str(main(args)))
