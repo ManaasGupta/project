@@ -30,6 +30,7 @@ def main(args):
         text_to_pdf(args.input_file,args.output_file)
     else:
         print("Invalid Operation Number !")
+    return "DONE"
     
 if __name__=="__main__":
     parser=argparse.ArgumentParser()
