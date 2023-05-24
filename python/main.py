@@ -6,7 +6,6 @@ from txt_to_docx import convert_txt_to_docx
 from txt2pdf import text_to_pdf
 import argparse
 import sys
-import os
 
 list_of_operations=["Word File to TXT file","Word File to PDF file","PDF File to Word file","PDF File to TXT file","TXT File to Word file","TXT File to PDF file"]
 
