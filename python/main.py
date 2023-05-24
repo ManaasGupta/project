@@ -15,7 +15,7 @@ def main(args):
         print(f"{idx+1}: {value} \n")
     print("Please select the option from the menu below\n")
     oper_num=int(input())
-    print("/n")
+    print("\n")
     if oper_num==1:
         convert_docx_to_txt(args.input_file,args.output_file)
     elif oper_num==2:
