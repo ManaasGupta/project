@@ -1,0 +1,35 @@
+library(nycflights13)
+library(tidyverse)
+df=nycflights13::flights
+View(df)
+attach(df)
+names(df)
+filter(df,month==1,day==2)
+jan<-filter(df,month==1,day==1)
+jan
+(dec25<-filter(df,month==12,day==25))
+filter(df,month==12|month==11)
+sum(filter(df,is.na(month)))
+filter(df,arr_delay>=120)
+filter(df,dest %in% c('IAH' ,'HOU'))
+unique(df$carrier)
+filter(df,carrier  %in% c('UA' ,'AA','DL'))
+filter(df,day %in% c(7,8,9))
+arrange(df,day,month,year)
+arrange(df,day)
+arrange(df,desc(day))
+arrange(df,desc(is.na(day)))
+df_test <- tibble(x = c(5, 2, NA))
+df_test
+arrange(df_test,desc(is.na(df_test$x)))
+arrange(df,desc(arr_delay),desc(dep_delay))
+tail(arrange(df,desc(is.na(arr_delay)),(dep_delay)))
+df$total_delay=df$arr_delay+df$dep_delay
+View(df)
+View(arrange(df,desc(total_delay)))
+View(tail(arrange(df,desc(is.na(total_delay)))))
+arrange(df,desc(distance))
+arrange(df,distance)
+View(mutate(df,
+       gain = arr_delay - dep_delay,
+       speed = distance / air_time * 60))
