@@ -21,14 +21,15 @@ def sendMail(toEmail,subject,message):
     mailserver.sendmail(user,toEmail,msg.as_string())
     mailserver.quit()
 
-email_list=[]
-mail=os.getenv('TO_EMAIL')
-for i in range(0,4):
-    email_list.append(mail)
-    
-for email in email_list:
-    subject="Testing 1 2 3 .."
-    message="Hi How are you"
-    sendMail(email,subject,message)
-    print(f"Email sent to {email}")
-print('All Mails sent sucessfully')
+if __name__=='__main__':
+    email_list=[]
+    mail=os.getenv('TO_EMAIL')
+    for i in range(0,4):
+        email_list.append(mail)
+
+    for email in email_list:
+        subject="Testing 1 2 3 .."
+        message="Hi How are you"
+        sendMail(email,subject,message)
+        print(f"Email sent to {email}")
+    print('All Mails sent sucessfully')
