@@ -21,7 +21,7 @@ def pass_check(args):
     if (len(char_list) < 8):
         print(Fore.RED +"Password length too small should contain atleast 8 characters ")
         print(Style.RESET_ALL)
-    elif (len(char_list) > 256):
+    elif (len(char_list) > 20):
         print(Fore.RED + "Password length too large should contain at max 256 characters")
         print(Style.RESET_ALL)
     
