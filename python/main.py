@@ -6,8 +6,17 @@ from txt_to_docx import convert_txt_to_docx
 from txt2pdf import text_to_pdf
 import argparse
 import sys
+import PyPDF2
+list_of_operations=["Word File to TXT file","Word File to PDF file","PDF File to Word file","PDF File to TXT file","TXT File to Word file","TXT File to PDF file","PDF to png(Image)"]
 
-list_of_operations=["Word File to TXT file","Word File to PDF file","PDF File to Word file","PDF File to TXT file","TXT File to Word file","TXT File to PDF file"]
+def pdf_to_image(pdf_path, image_path):
+    with open(pdf_path, 'rb') as pdf_file:
+        pdf_reader = PyPDF2.PdfReader(pdf_file)
+        for page_number, page in enumerate(pdf_reader.pages, start=1):
+            output_path = f'{image_path}_page_{page_number}.png'
+            page.export(output_path, 'png')
+            print(f'Page {page_number} converted successfully.')
+
 
 def main(args):
     print("Welome to Format converter\n")
@@ -28,6 +37,8 @@ def main(args):
         convert_txt_to_docx(args.input_file,args.output_file)
     elif oper_num==6:
         text_to_pdf(args.input_file,args.output_file)
+    elif oper_num==7:
+        pdf_to_image(args.input_file,args.output_file)
     else:
         print("Invalid Operation Number !")
     return "DONE"
